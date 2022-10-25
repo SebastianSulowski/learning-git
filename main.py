@@ -10,6 +10,8 @@ print()
     print(f"Idę do: {shop.capitalize()} i kupuję tam: {products}")
 print(f"kupię {counter} produkty".capitalize())
 print()
+print()
+
 
 
 
