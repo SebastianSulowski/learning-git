@@ -1,4 +1,8 @@
 word = "potop"
 def palindrom(word):
-    word = ()
-print(word==word[::-1])
+    if word==word[::-1]:
+        print(True)
+    else:
+        print("none")
+palindrom("kura")
+palindrom("potop")
