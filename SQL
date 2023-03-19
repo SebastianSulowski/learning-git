@@ -1,0 +1,28 @@
+import sqlite3
+conn = sqlite3.connect('example.db')
+cursor = conn.cursor()
+
+cursor.execute('''CREATE TABLE users
+                 (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)''')
+
+
+cursor.execute("INSERT INTO users (name, age) VALUES ('John', 30)")
+cursor.execute("INSERT INTO users (name, age) VALUES ('Alice', 25)")
+
+id = 1
+name = 'Jonathan'
+age = 35
+cursor.execute("UPDATE users SET name=?, age=? WHERE id=?", (name, age, id))
+conn.commit()
+
+id = 2
+cursor.execute("DELETE FROM users WHERE id=?", (id,))
+conn.commit()
+
+cursor.execute("SELECT * FROM users")
+rows = cursor.fetchall()
+for row in rows:
+    print(row)
+
+
+conn.close()
