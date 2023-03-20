@@ -4,15 +4,13 @@ class Films:
         self.year = year
         self.genre = genre
         self.number_plays = number_plays
+        self.plays = 0
 
-        self.play = 0
-
-    def play(self, step=1):
-        self.play += step
-        Films.play()
+    def play_movie(self, step=1):
+        self.plays += step
 
     def __str__(self):
-        return f"{self.title} {self.year}"
+        return f"{self.title} ({self.year})"
 
 
 class Serial(Films):
@@ -20,12 +18,10 @@ class Serial(Films):
         super().__init__(*args, **kwargs)
         self.episodes = episodes
         self.seasons = seasons
+        self.plays = 0
 
-        self.play = 0
-
-    def play(self, step=1):
-        self.play += step
-        Serial.play()
+    def play_episode(self, step=1):
+        self.plays += step
 
     def __str__(self):
-        return f"{self.title}S{self.seasons:02}E{self.episodes:02}"
+        return f"{self.title} ({self.year}) S{self.seasons:02}E{self.episodes:02}"
